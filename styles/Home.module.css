@@ -8,13 +8,29 @@
   padding: 0;
 }
 
-/* Encabezado centrado */
-.header {
+/* Composición de los carruseles (las filas) */
+.composition {
   display: flex;
-  justify-content: center;
-  margin: 20px 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* Espacio entre filas */
 }
 
+/* Footer para los iconos justo debajo de las filas */
+.footer {
+  padding: 20px 0; /* Espaciado vertical para separar de los carruseles */
+  display: flex;
+  justify-content: center;
+}
+
+/* Contenedor para los iconos */
+.iconContainer {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Botones de los iconos (shuffle y añadir al carro) */
 .topButton {
   background-color: #fff;
   border: 1px solid #ddd;
@@ -29,20 +45,12 @@
   background-color: #e0e6ed;
 }
 
-/* Composición: los carruseles en columna con poco espacio entre filas */
-.composition {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1px; /* Se reduce el gap entre filas */
-}
-
 /* Carousel3 Container */
 .carouselContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 10px;
 }
 
 /* Carrusel: imágenes y flechas */
@@ -68,11 +76,7 @@
 }
 
 /* Estilo para imágenes del carrusel */
-.itemImageSmall {
-  border-radius: 12px;
-  object-fit: contain;
-}
-
+.itemImageSmall,
 .itemImageLarge {
   border-radius: 12px;
   object-fit: contain;
@@ -80,6 +84,5 @@
 
 /* Estilos específicos para el carrusel de prendas inferiores */
 .inferiorCarousel .carouselImages {
-  /* Permite que el contenedor se adapte a la mayor altura sin restricciones */
   height: auto;
 }

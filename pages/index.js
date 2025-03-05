@@ -42,18 +42,17 @@ export default function Home() {
     setZapatoIndex(Math.floor(Math.random() * zapatos.length));
   };
 
+  // Función para agregar al carro
+  const handleAddToCart = () => {
+    // Lógica para agregar al carro
+    console.log("Añadir al carro");
+  };
+
   return (
     <div className={styles.container}>
-      {/* Botón Randomize centrado */}
-      <header className={styles.header}>
-        <button onClick={handleRandomize} className={styles.topButton}>
-          Randomize
-        </button>
-      </header>
-
-      {/* Composición del avatar: cada línea es un carrusel con su propio tamaño */}
+      {/* Carruseles */}
       <div className={styles.composition}>
-        {/* Accesorios: tamaño pequeño */}
+        {/* Accesorios */}
         <Carousel3 
           items={accesoriosCabeza} 
           selectedIndex={accesorioIndex} 
@@ -67,7 +66,7 @@ export default function Home() {
             rightHeight: 60,
           }}
         />
-        {/* Prenda superior: tamaño original */}
+        {/* Prenda superior */}
         <Carousel3 
           items={prendasSuperiores} 
           selectedIndex={superiorIndex} 
@@ -75,28 +74,28 @@ export default function Home() {
           sizes={{
             leftWidth: 80,
             leftHeight: 80,
-            centerWidth: 130,
+            centerWidth: 150,
             centerHeight: 150,
             rightWidth: 80,
             rightHeight: 80,
           }}
         />
-        {/* Prenda inferior: mismo ancho que la prenda superior pero más alta */}
+        {/* Prenda inferior */}
         <Carousel3 
           items={prendasInferiores} 
           selectedIndex={inferiorIndex} 
           onSelect={setInferiorIndex}
           sizes={{
             leftWidth: 80,
-            leftHeight: 120,   // Se incrementa la altura lateral
-            centerWidth: 140,
-            centerHeight: 180, // Se incrementa la altura central
+            leftHeight: 100,
+            centerWidth: 150,
+            centerHeight: 210,
             rightWidth: 80,
-            rightHeight: 120,
+            rightHeight: 100,
           }}
           extraClass={styles.inferiorCarousel}
         />
-        {/* Calzado: tamaño pequeño */}
+        {/* Calzado */}
         <Carousel3 
           items={zapatos} 
           selectedIndex={zapatoIndex} 
@@ -111,16 +110,27 @@ export default function Home() {
           }}
         />
       </div>
+
+      {/* Iconos en la parte inferior */}
+      <footer className={styles.footer}>
+        <div className={styles.iconContainer}>
+          <button onClick={handleRandomize} className={styles.topButton}>
+            <Image src="/shuffle.png" alt="Shuffle" width={32} height={32} />
+          </button>
+          <button onClick={handleAddToCart} className={styles.topButton}>
+            <Image src="/cart.png" alt="Añadir al carro" width={32} height={32} />
+          </button>
+        </div>
+      </footer>
     </div>
   );
 }
 
-// Componente Carousel3 modificado para aceptar la propiedad extraClass
+// Componente Carousel3 modificado (sin cambios respecto a lo anterior)
 function Carousel3({ items, selectedIndex, onSelect, sizes, extraClass }) {
   const containerRef = useRef(null);
   const [touchStartX, setTouchStartX] = useState(null);
 
-  // Valores por defecto (en caso de no recibir sizes)
   const defaultSizes = {
     leftWidth: 80,
     leftHeight: 80,
@@ -132,7 +142,6 @@ function Carousel3({ items, selectedIndex, onSelect, sizes, extraClass }) {
 
   const { leftWidth, leftHeight, centerWidth, centerHeight, rightWidth, rightHeight } = sizes || defaultSizes;
 
-  // Detecta swipe en dispositivos móviles
   const handleTouchStart = (e) => {
     setTouchStartX(e.changedTouches[0].clientX);
   };
@@ -151,7 +160,6 @@ function Carousel3({ items, selectedIndex, onSelect, sizes, extraClass }) {
     setTouchStartX(null);
   };
 
-  // Índices para la imagen izquierda y derecha (wrap-around)
   const leftIndex = (selectedIndex - 1 + items.length) % items.length;
   const rightIndex = (selectedIndex + 1) % items.length;
 
