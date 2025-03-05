@@ -73,7 +73,7 @@ export default function Home() {
           onSelect={setSuperiorIndex}
           sizes={{
             leftWidth: 80,
-            leftHeight: 80,
+            leftHeight: 60,
             centerWidth: 150,
             centerHeight: 150,
             rightWidth: 80,
@@ -86,7 +86,7 @@ export default function Home() {
           selectedIndex={inferiorIndex} 
           onSelect={setInferiorIndex}
           sizes={{
-            leftWidth: 80,
+            leftWidth: 60,
             leftHeight: 100,
             centerWidth: 150,
             centerHeight: 210,
