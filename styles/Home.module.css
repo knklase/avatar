@@ -1,11 +1,13 @@
+/* Contenedor general */
 .container {
   min-height: 100vh;
-  background: #f7f9fc; /* Color claro con personalidad */
+  background: #f7f9fc; /* Fondo claro con personalidad */
   padding: 20px;
   font-family: 'Helvetica Neue', Arial, sans-serif;
   color: #333;
 }
 
+/* Encabezado con botones */
 .header {
   display: flex;
   justify-content: flex-end;
@@ -22,10 +24,12 @@
   transition: background-color 0.3s ease;
   font-size: 14px;
 }
+
 .topButton:hover {
   background-color: #e0e6ed;
 }
 
+/* Título principal */
 .title {
   text-align: center;
   font-size: 2rem;
@@ -33,6 +37,7 @@
   font-weight: 300;
 }
 
+/* Secciones */
 .sections {
   display: flex;
   flex-direction: column;
@@ -43,7 +48,7 @@
   background-color: #fff;
   border-radius: 12px;
   padding: 15px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .sectionTitle {
@@ -53,44 +58,40 @@
   font-weight: 300;
 }
 
+/* Carousel con scroll snap */
 .carousel {
   display: flex;
-  align-items: center;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px 0;
+  scroll-snap-type: x mandatory;
   justify-content: center;
-  gap: 15px;
 }
 
-.navButton {
-  background: none;
-  border: none;
-  font-size: 2rem;
+.carouselItem {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
   cursor: pointer;
-  color: #888;
-  transition: color 0.3s ease;
-}
-.navButton:hover {
-  color: #333;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.7;
 }
 
-.item {
-  text-align: center;
+.carouselItem:hover {
+  opacity: 1;
 }
 
-.itemText {
-  margin-top: 8px;
-  font-size: 1rem;
-  font-weight: 300;
+/* El elemento activo se muestra más grande */
+.activeItem {
+  opacity: 1;
+  transform: scale(1.2);
 }
 
-.avatarImage {
+/* Imagen del carousel */
+.itemImage {
   border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-.avatarImage:hover {
-  transform: scale(1.05);
 }
 
+/* Modal */
 .modalOverlay {
   position: fixed;
   top: 0;
@@ -126,6 +127,18 @@
   margin-bottom: 15px;
 }
 
+.previewItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.previewImage {
+  border-radius: 12px;
+  border: 1px solid #ddd;
+}
+
 .closeModalButton {
   background-color: #ffffff;
   border: 1px solid #ddd;
@@ -135,6 +148,7 @@
   transition: background-color 0.3s ease;
   font-size: 14px;
 }
+
 .closeModalButton:hover {
   background-color: #e0e6ed;
 }
