@@ -86,3 +86,39 @@
 .inferiorCarousel .carouselImages {
   height: auto;
 }
+@media (max-width: 600px) {
+  /* Reducir el espacio entre filas */
+  .composition {
+    gap: 5px;
+  }
+  
+  /* Ajustar el contenedor del carrusel para que ocupe el ancho completo */
+  .carouselContainer {
+    gap: 5px;
+    margin: 2px 0;
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  
+  /* Disminuir el gap entre las imágenes del carrusel */
+  .carouselImages {
+    gap: 10px;
+  }
+  
+  /* Reducir el tamaño de las flechas */
+  .carouselArrow {
+    font-size: 1.5rem;
+  }
+  
+  /* Ajustar tamaños de las imágenes: la central y las laterales */
+  .itemImageLarge {
+    width: 120px !important;
+    height: 120px !important;
+  }
+  
+  .itemImageSmall {
+    width: 60px !important;
+    height: 60px !important;
+  }
+}
