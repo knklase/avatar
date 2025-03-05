@@ -1,27 +1,27 @@
-/* Contenedor general */
+/* Contenedor general sin paddings extras */
 .container {
   min-height: 100vh;
-  background: #f7f9fc; /* Fondo claro con personalidad */
-  padding: 20px;
+  background: #f7f9fc;
   font-family: 'Helvetica Neue', Arial, sans-serif;
   color: #333;
+  margin: 0;
+  padding: 0;
 }
 
-/* Encabezado con botones */
+/* Encabezado centrado */
 .header {
   display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  margin-bottom: 20px;
+  justify-content: center;
+  margin: 20px 0;
 }
 
 .topButton {
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 10px 15px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
   font-size: 14px;
 }
 
@@ -29,126 +29,57 @@
   background-color: #e0e6ed;
 }
 
-/* Título principal */
-.title {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 30px;
-  font-weight: 300;
-}
-
-/* Secciones */
-.sections {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-.section {
-  background-color: #fff;
-  border-radius: 12px;
-  padding: 15px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.sectionTitle {
-  text-align: center;
-  font-size: 1.25rem;
-  margin-bottom: 15px;
-  font-weight: 300;
-}
-
-/* Carousel con scroll snap */
-.carousel {
-  display: flex;
-  overflow-x: auto;
-  gap: 10px;
-  padding: 10px 0;
-  scroll-snap-type: x mandatory;
-  justify-content: center;
-}
-
-.carouselItem {
-  flex: 0 0 auto;
-  scroll-snap-align: center;
-  cursor: pointer;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  opacity: 0.7;
-}
-
-.carouselItem:hover {
-  opacity: 1;
-}
-
-/* El elemento activo se muestra más grande */
-.activeItem {
-  opacity: 1;
-  transform: scale(1.2);
-}
-
-/* Imagen del carousel */
-.itemImage {
-  border-radius: 12px;
-}
-
-/* Modal */
-.modalOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-
-.modalContent {
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  width: 90%;
-  max-width: 400px;
-  text-align: center;
-}
-
-.modalTitle {
-  margin-bottom: 15px;
-  font-weight: 300;
-}
-
-.previewGrid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  margin-bottom: 15px;
-}
-
-.previewItem {
+/* Composición: los carruseles en columna con poco espacio entre filas */
+.composition {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1px; /* Se reduce el gap entre filas */
+}
+
+/* Carousel3 Container */
+.carouselContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 5px;
 }
 
-.previewImage {
-  border-radius: 12px;
-  border: 1px solid #ddd;
+/* Carrusel: imágenes y flechas */
+.carouselImages {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-.closeModalButton {
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 8px 12px;
+.carouselItemSmall,
+.carouselItemLarge {
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-size: 14px;
+  transition: transform 0.3s;
 }
 
-.closeModalButton:hover {
-  background-color: #e0e6ed;
+.carouselArrow {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #333;
+  user-select: none;
+}
+
+/* Estilo para imágenes del carrusel */
+.itemImageSmall {
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+.itemImageLarge {
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+/* Estilos específicos para el carrusel de prendas inferiores */
+.inferiorCarousel .carouselImages {
+  /* Permite que el contenedor se adapte a la mayor altura sin restricciones */
+  height: auto;
 }
