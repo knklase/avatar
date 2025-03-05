@@ -14,18 +14,21 @@ export default function Home() {
     { id: 1, nombre: 'Camiseta', img: '/superior1.png' },
     { id: 2, nombre: 'Sudadera', img: '/superior2.png' },
     { id: 3, nombre: 'Blusa', img: '/superior3.png' },
+    { id: 4, nombre: 'Blusa', img: '/superior4.png' },
   ];
 
   const prendasInferiores = [
     { id: 1, nombre: 'Pantalón', img: '/inferior1.png' },
     { id: 2, nombre: 'Falda', img: '/inferior2.png' },
     { id: 3, nombre: 'Short', img: '/inferior3.png' },
+    { id: 4, nombre: 'Short', img: '/inferior4.png' },
   ];
 
   const zapatos = [
     { id: 1, nombre: 'Zapatillas', img: '/zapatos1.png' },
     { id: 2, nombre: 'Botas', img: '/zapatos2.png' },
     { id: 3, nombre: 'Sandalias', img: '/zapatos3.png' },
+    { id: 4, nombre: 'Sandalias', img: '/zapatos4.png' },
   ];
 
   // Estados para la selección en cada categoría
